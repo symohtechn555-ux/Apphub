@@ -1,0 +1,31 @@
+{
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/:slug((?!(?:admin|contact|request-app|saved|top|donate|unsubscribe|api|icons)$)[a-z0-9-]+)",
+      "destination": "/api/page?slug=:slug"
+    },
+    {
+      "source": "/:slug((?!(?:admin|contact|request-app|saved|top|donate|unsubscribe|api|icons)$)[a-z0-9-]+)/:tab",
+      "destination": "/api/page?slug=:slug&tab=:tab"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
+}
